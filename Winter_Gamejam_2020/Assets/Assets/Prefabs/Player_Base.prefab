@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1301135343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1301135344}
+  m_Layer: 0
+  m_Name: LaunchPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1301135344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301135343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3026404199871054095}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1709884114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1709884115}
+  m_Layer: 0
+  m_Name: AimTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1709884115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709884114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3026404199090095283}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3026404198720958961
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,6 +132,8 @@ GameObject:
   - component: {fileID: 3026404199090095280}
   - component: {fileID: 3026404199090095281}
   - component: {fileID: 3026404199090095286}
+  - component: {fileID: 1169115331}
+  - component: {fileID: 1169115335}
   m_Layer: 0
   m_Name: Player_Base
   m_TagString: Untagged
@@ -92,6 +154,7 @@ Transform:
   m_Children:
   - {fileID: 3026404199871054095}
   - {fileID: 3026404200051550975}
+  - {fileID: 1709884115}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -152,6 +215,37 @@ MonoBehaviour:
   dLeft: {fileID: 3026404198821308182}
   turnSpeed: 365
   rotateCharacter: {fileID: 3026404199871054095}
+--- !u!114 &1169115331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026404199090095287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32460e600fd59614c9c51de64f097a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canAim: 1
+  aimSpeed: 365
+  rotateCharacter: {fileID: 3026404199871054095}
+  aimTarget: {fileID: 1709884115}
+  aimArrow: {fileID: 0}
+--- !u!114 &1169115335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026404199090095287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee07c0f08a6524e4c930a7e3b8946c8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMask: 5
+  publicMask: 5
 --- !u!1 &3026404199629293202
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3026404199871054095}
+  - component: {fileID: 876334459}
   m_Layer: 0
   m_Name: Player_Rotation
   m_TagString: Untagged
@@ -304,9 +399,28 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3026404199768782580}
+  - {fileID: 1301135344}
   m_Father: {fileID: 3026404199090095283}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &876334459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026404199871054092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f4084b53484ca4d9882145409584a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskProjectile: {fileID: 2240117800848864747, guid: dab4b1ad28fbaa24a996ad24ae740f30,
+    type: 3}
+  throwForce: 25
+  mailThrow: {fileID: 0}
+  launchPosition: {fileID: 1301135344}
+  mMaskTracker: {fileID: 1169115335}
 --- !u!1 &3026404200051550972
 GameObject:
   m_ObjectHideFlags: 0
