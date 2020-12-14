@@ -56,6 +56,8 @@ public class ThrowMask : MonoBehaviour
 
                     rbPackage = tempMask.GetComponent<Rigidbody>();
 
+                    tempMask.transform.parent = null;
+
                     if (rbPackage)
                     {
                         //rbPackage.isKinematic = false;
