@@ -83,7 +83,7 @@ public class CustomerAI : MonoBehaviour
                 }
             }
 
-            Transform[] randomTasks = new Transform[Random.Range(0, 7)];
+            Transform[] randomTasks = new Transform[Random.Range(2, 7)];
             for (int i = 0; i < randomTasks.Length; i++)
             {
                 if (i != randomTasks.Length - 1)
@@ -161,7 +161,7 @@ public class Customer
     public void Move(Vector3 target)
     {
         agent.SetDestination(target);
-        if (Vector3.Distance(agent.transform.position, target) < 1)
+        if (Vector3.Distance(agent.transform.position, target) < 2)
         {
             if (taskIndex < tasks.Length - 1)
             {
