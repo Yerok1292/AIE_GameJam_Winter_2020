@@ -128,11 +128,6 @@ public class CustomerAI : MonoBehaviour
         Destroy(cust.customer);
         cust = null;
     }
-
-    public void InteractDelay(Customer cust)
-    {
-        StartCoroutine(cust.Wait());
-    }
 }
 
 
@@ -147,6 +142,7 @@ public class Customer
     public NavMeshAgent agent;
     public Transform[] tasks;
     public int taskIndex;
+    public float taskTimer;
 
     public Customer(bool antiMask, bool masked, GameObject customerObject, NavMeshAgent customerAgent, Transform[] nodeTasks)
     {
@@ -161,11 +157,12 @@ public class Customer
     public void Move(Vector3 target)
     {
         agent.SetDestination(target);
-        if (Vector3.Distance(agent.transform.position, target) < 2)
+        if (Vector3.Distance(agent.transform.position, target) < 1.3f)
         {
             if (taskIndex < tasks.Length - 1)
             {
                 taskIndex++;
+                taskTimer = 2;
                 state = States.Interact;
             }
             else
@@ -177,21 +174,22 @@ public class Customer
 
     public void Interact()
     {
-        Wait();
+        if (taskTimer > 0)
+        {
+            taskTimer -= Time.deltaTime;
+        }
+        else
+        {
+            state = States.Move;
+        }
     }
 
     public void Leave(Vector3 exit)
     {
         agent.SetDestination(exit);
-        if (Vector3.Distance(agent.transform.position, exit) < 1)
+        if (Vector3.Distance(agent.transform.position, exit) < 3)
         {
             shouldDespawn = true;
         }
-    }
-
-    public IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(1);
-        state = States.Move;
     }
 }
