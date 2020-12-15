@@ -11,24 +11,78 @@ public class CustomerAI : MonoBehaviour
     public Transform slusheeNode;
 
     public List<Customer> customers;
+    public GameObject customerPrefab;
     public int customerCount;
+    public float spawnTimer = 5;
+    private float spawnTime;
     public Vector3 spawnPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        customers = new List<Customer>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (spawnTime > 0)
+        {
+            spawnTime -= Time.deltaTime;
+        }
+        else
+        {
+            GameObject customerToAdd = SpawnCustomer();
+            bool antiMaskRand = false;
+            bool maskedRand = false;
+            List<Transform> randomTasks = new List<Transform>();
+            if (Random.Range(0, 2) == 0)
+            {
+                antiMaskRand = false;
+                if (Random.Range(0, 4) == 3)
+                {
+                    maskedRand = false;
+                }
+                else
+                {
+                    maskedRand = true;
+                }
+            }
+            else
+            {
+                antiMaskRand = true;
+                if (Random.Range(0, 4) == 3)
+                {
+                    maskedRand = true;
+                }
+                else
+                {
+                    maskedRand = false;
+                }
+            }
+            customerToAdd = new Customer(antiMaskRand, maskedRand, custSpawn.GetComponent<NavMeshAgent>(), randomTasks);
+            spawnTime = spawnTimer;
+        }
+
+        foreach (Customer customer in customers)
+        {
+            switch (customer.state)
+            {
+                case Customer.States.Move:
+
+                    break;
+                case Customer.States.Interact:
+
+                    break;
+            }
+        }
     }
 
-    void SpawnCustomer()
+    GameObject SpawnCustomer()
     {
-
+        GameObject custSpawn = Instantiate(customerPrefab, spawnPoint, new Quaternion());
+        
+        return custSpawn;
     }
 }
 
