@@ -24,11 +24,23 @@ public class BreakRepairItem : MonoBehaviour
             if (Random.value <= BreakingChance / 100)
             {
                 Debug.Log("Broke machine");
+                broken = true;
                 repairedObject.SetActive(false);
                 brokenObject.SetActive(true);
             }
 
 
         }
+    }
+
+    public void repairItem()
+    {
+        //First childed model = fixed
+        GameObject repairedObject = transform.GetChild(0).gameObject;
+        //Second childed model = broken
+        GameObject brokenObject = transform.GetChild(1).gameObject;
+        repairedObject.SetActive(true);
+        brokenObject.SetActive(false);
+        broken = false;
     }
 }
