@@ -33,10 +33,13 @@ public class CustomerAI : MonoBehaviour
             switch (customer.state)
             {
                 case Customer.States.Move:
-
+                    customer.Move();
                     break;
                 case Customer.States.Interact:
-
+                    customer.Interact();
+                    break;
+                case Customer.States.Leave:
+                    customer.Leave();
                     break;
             }
         }
@@ -96,11 +99,16 @@ public class CustomerAI : MonoBehaviour
                             break;
                     }
                 }
+                else
+                {
+                    randomTasks[i] = counterNode;
+                }
             }
 
             GameObject customerObject = SpawnCustomer();
             Customer customerToAdd = new Customer(antiMaskRand, maskedRand, customerObject.GetComponent<NavMeshAgent>(), randomTasks);
             customers.Add(customerToAdd);
+
             spawnTime = spawnTimer;
         }
     }
@@ -117,7 +125,7 @@ public class Customer
 {
     bool isAntiMasker;
     bool isMasked;
-    public enum States { Move, Interact };
+    public enum States { Move, Interact, Leave };
     public States state;
     public NavMeshAgent agent;
     public Transform[] tasks;
@@ -128,5 +136,20 @@ public class Customer
         isMasked = masked;
         agent = customerAgent;
         tasks = nodeTasks;
+    }
+
+    public void Move()
+    {
+
+    }
+
+    public void Interact()
+    {
+
+    }
+
+    public void Leave()
+    {
+
     }
 }
