@@ -2578,7 +2578,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Do so by throwing them onto maskless caughing customers. You can refill 
+  m_text: Do so by throwing them onto maskless coughing customers. You can refill 
     your supply at the box behind the counter.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac2027985c9d2fb49a58e0fceac5d318, type: 2}
