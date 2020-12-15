@@ -33,14 +33,18 @@ public class CustomerAI : MonoBehaviour
             switch (customer.state)
             {
                 case Customer.States.Move:
-                    customer.Move();
+                    customer.Move(customer.tasks[customer.taskIndex].position);
                     break;
                 case Customer.States.Interact:
                     customer.Interact();
                     break;
                 case Customer.States.Leave:
-                    customer.Leave();
+                    customer.Leave(spawnPoint);
                     break;
+            }
+            if (customer.shouldDespawn)
+            {
+                DespawnCustomer(customer);
             }
         }
     }
@@ -106,7 +110,7 @@ public class CustomerAI : MonoBehaviour
             }
 
             GameObject customerObject = SpawnCustomer();
-            Customer customerToAdd = new Customer(antiMaskRand, maskedRand, customerObject.GetComponent<NavMeshAgent>(), randomTasks);
+            Customer customerToAdd = new Customer(antiMaskRand, maskedRand, customerObject, customerObject.GetComponent<NavMeshAgent>(), randomTasks);
             customers.Add(customerToAdd);
 
             spawnTime = spawnTimer;
@@ -118,38 +122,77 @@ public class CustomerAI : MonoBehaviour
         GameObject custSpawn = Instantiate(customerPrefab, spawnPoint, new Quaternion());
         return custSpawn;
     }
+
+    public void DespawnCustomer(Customer cust)
+    {
+        customers.Remove(cust);
+        Destroy(cust.customer);
+        cust = null;
+    }
+
+    public void InteractDelay(Customer cust)
+    {
+        StartCoroutine(cust.Wait());
+    }
 }
 
 
 public class Customer
 {
-    bool isAntiMasker;
-    bool isMasked;
+    public bool shouldDespawn;
+    public bool isAntiMasker;
+    public bool isMasked;
     public enum States { Move, Interact, Leave };
     public States state;
+    public GameObject customer;
     public NavMeshAgent agent;
     public Transform[] tasks;
+    public int taskIndex;
 
-    public Customer(bool antiMask, bool masked, NavMeshAgent customerAgent, Transform[] nodeTasks)
+    public Customer(bool antiMask, bool masked, GameObject customerObject, NavMeshAgent customerAgent, Transform[] nodeTasks)
     {
+        shouldDespawn = false;
         isAntiMasker = antiMask;
         isMasked = masked;
+        customer = customerObject;
         agent = customerAgent;
         tasks = nodeTasks;
     }
 
-    public void Move()
+    public void Move(Vector3 target)
     {
-
+        agent.SetDestination(target);
+        if (Vector3.Distance(agent.transform.position, target) < 1)
+        {
+            if (taskIndex < tasks.Length - 1)
+            {
+                taskIndex++;
+                state = States.Interact;
+            }
+            else
+            {
+                state = States.Leave;
+            }
+        }
     }
 
     public void Interact()
     {
-
+        Wait();
     }
 
-    public void Leave()
+    public void Leave(Vector3 exit)
     {
+        agent.SetDestination(exit);
+        if (Vector3.Distance(agent.transform.position, exit) < 1)
+        {
+            shouldDespawn = true;
+        }
+    }
 
+    public IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1);
+        state = States.Move;
     }
 }
