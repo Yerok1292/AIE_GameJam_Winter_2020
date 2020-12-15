@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Slurpee
+  m_Name: Green Slurpee
   m_Shader: {fileID: -6465566751694194690, guid: a7669c47494f0f642940185f9ed6303b,
     type: 3}
   m_ShaderKeywords: 
@@ -29,6 +29,6 @@ Material:
     - Vector1_79E377DC: 0.2
     - Vector1_908DD726: 1
     - Vector1_961717C3: 1
-    - Vector1_E425AF1D: 0.5
+    - Vector1_E425AF1D: 0.15
     m_Colors:
-    - Color_EBF03323: {r: 0.6071777, g: 3.677763, b: 2.562046, a: 0}
+    - Color_EBF03323: {r: 0.6161695, g: 3.6777627, b: 0.9858458, a: 0}
