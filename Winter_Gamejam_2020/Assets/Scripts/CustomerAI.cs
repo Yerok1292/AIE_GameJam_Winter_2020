@@ -12,7 +12,6 @@ public class CustomerAI : MonoBehaviour
 
     public List<Customer> customers;
     public GameObject customerPrefab;
-    public int customerCount;
     public float spawnTimer = 5;
     private float spawnTime;
     public Vector3 spawnPoint;
