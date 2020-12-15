@@ -60,7 +60,7 @@ public class CustomerAI : MonoBehaviour
                     maskedRand = false;
                 }
             }
-            customerToAdd = new Customer(antiMaskRand, maskedRand, custSpawn.GetComponent<NavMeshAgent>(), randomTasks);
+            //customerToAdd = new Customer(antiMaskRand, maskedRand, custSpawn.GetComponent<NavMeshAgent>(), randomTasks);
             spawnTime = spawnTimer;
         }
 
