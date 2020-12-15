@@ -35,6 +35,31 @@ public class InteractScript : MonoBehaviour
 
     private void OnTriggerStay(Collider collision)
     {
+        if (collision.tag == "MaskReload" && gameObject.GetComponent<MaskTracker>().currentMask < gameObject.gameObject.GetComponent<MaskTracker>().maxMask)
+        {
+
+            RepairImageRoot.gameObject.SetActive(true);
+            if (Input.GetKey(KeyCode.Mouse1))
+            {
+                repairTimeCurrent += Time.deltaTime;
+                progressPercent = repairTimeCurrent / repairTime;
+                repairProgressImage.fillAmount = progressPercent;
+            }
+            if (progressPercent >= 1)
+            {
+                gameObject.GetComponent<MaskTracker>().Refresh();
+                RepairImageRoot.gameObject.SetActive(false);
+                repairProgressImage.fillAmount = 0;
+                repairTimeCurrent = 0;
+                progressPercent = 0;
+                Debug.Log("Trigger Repair/mask exit");
+                RepairImageRoot.gameObject.SetActive(false);
+            }
+        }
+
+
+
+
 
         Debug.Log("collided with player/machine");
 
@@ -62,11 +87,14 @@ public class InteractScript : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        repairProgressImage.fillAmount = 0;
-        repairTimeCurrent = 0;
-        progressPercent = 0;
-        Debug.Log("exited player/machine");
-        RepairImageRoot.gameObject.SetActive(false);
+        if (collision.tag == "RepairItem" || collision.tag == "MaskReload")
+        {
+            repairProgressImage.fillAmount = 0;
+            repairTimeCurrent = 0;
+            progressPercent = 0;
+            Debug.Log("Trigger Repair/mask exit");
+            RepairImageRoot.gameObject.SetActive(false);
+        }
     }
 
 }

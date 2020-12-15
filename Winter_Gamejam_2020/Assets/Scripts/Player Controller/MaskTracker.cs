@@ -8,7 +8,7 @@ public class MaskTracker : MonoBehaviour
     public int maxMask = 5;
     private int minMask = 0;
     public int publicMask = 5; //Display value for masks
-    private int currentMask;
+    public int currentMask;
 
     // Start is called before the first frame update
     void Start()

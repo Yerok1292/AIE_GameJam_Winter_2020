@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 3026404199090095286}
   - component: {fileID: 1169115331}
   - component: {fileID: 1169115335}
+  - component: {fileID: 6626787813978750060}
   m_Layer: 0
   m_Name: Player_Base
   m_TagString: Untagged
@@ -246,6 +247,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMask: 5
   publicMask: 5
+  currentMask: 0
+--- !u!114 &6626787813978750060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026404199090095287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43dfb1ce22b990d4eae92c3f86f5e914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 32
+  repairTime: 2
+  repairTimeCurrent: 0
+  progressPercent: 0
+  RepairImageRoot: {fileID: 0}
+  repairProgressImage: {fileID: 0}
+  interactText: {fileID: 0}
 --- !u!1 &3026404199629293202
 GameObject:
   m_ObjectHideFlags: 0
