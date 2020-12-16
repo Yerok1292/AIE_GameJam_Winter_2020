@@ -177,7 +177,7 @@ public class Customer
     public void Move(Vector3 target)
     {
         agent.SetDestination(target);
-        if (Vector3.Distance(agent.transform.position, target) < 1.3f)
+        if (Vector3.Distance(agent.transform.position, target) < 4.5f)
         {
             if (taskIndex < tasks.Length - 1)
             {
@@ -219,7 +219,7 @@ public class Customer
     public void Leave(Vector3 exit)
     {
         agent.SetDestination(exit);
-        if (Vector3.Distance(agent.transform.position, exit) < 3)
+        if (Vector3.Distance(agent.transform.position, exit) < 4.5f)
         {
             shouldDespawn = true;
         }
