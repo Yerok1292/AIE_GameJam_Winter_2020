@@ -841,7 +841,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1185368804}
+  gameOverUI: {fileID: 0}
+  gameWinUI: {fileID: 0}
   currentHealth: 0
+  currentCoworkerHealth: 0
+  coworkerHealthMax: 0
+  coworkerDamage: 1
+  coworkerHealthPercent: 0
+  coworkerHealthImage: {fileID: 1231668669}
+  timer: {fileID: 0}
 --- !u!1 &1203191735
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +937,7 @@ GameObject:
   - component: {fileID: 1231668670}
   - component: {fileID: 1231668669}
   m_Layer: 5
-  m_Name: ProgressBar (1)
+  m_Name: ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

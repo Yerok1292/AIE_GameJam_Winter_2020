@@ -12,7 +12,21 @@ public class HealthBar : MonoBehaviour
     public GameObject gameWinUI;
     public float currentHealth;
 
+    public float currentCoworkerHealth;
+    public float coworkerHealthMax = 4;
+    public float coworkerDamage = 1;
+
+    public float coworkerHealthPercent;
+
+    [SerializeField]
+    private Image coworkerHealthImage;
+
     public Timer timer;
+
+    private void Start()
+    {
+        currentCoworkerHealth = coworkerHealthMax;
+    }
 
 
     public void SetMaxHealth(float health)
@@ -29,16 +43,23 @@ public class HealthBar : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            coworkerTakeDamage();
+        }
+
         currentHealth = slider.value;
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 || currentCoworkerHealth <= 0)
         {
             timer.gameEnd = true;
             gameOverUI.SetActive(true);
         }
     }
 
-    public void GameOver()
+    public void coworkerTakeDamage()
     {
-
+        currentCoworkerHealth -= coworkerDamage;
+        coworkerHealthPercent = currentCoworkerHealth / coworkerHealthMax;
+        coworkerHealthImage.fillAmount = coworkerHealthPercent;
     }
 }
