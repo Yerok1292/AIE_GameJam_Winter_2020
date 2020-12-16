@@ -38,9 +38,6 @@ public class AimMask : MonoBehaviour
                 {
                     aimArrow.SetActive(true);
                 }
-                FindObjectOfType<AudioManager>().Play("throw mask sound");
-
-                
                 mMovement.isThrowing = true;
                 targetRay = mCam.ScreenPointToRay(Input.mousePosition);
                 targetPos = targetRay.GetPoint(rayDist);

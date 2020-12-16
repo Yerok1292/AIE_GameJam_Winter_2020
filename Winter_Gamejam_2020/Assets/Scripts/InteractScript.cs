@@ -69,17 +69,12 @@ public class InteractScript : MonoBehaviour
             RepairImageRoot.gameObject.SetActive(true);
             if (Input.GetKey(KeyCode.Mouse1))
             {
-                if (progressPercent == 0)
-                {
-                    FindObjectOfType<AudioManager>().Play("fixing");
-                }
                 repairTimeCurrent += Time.deltaTime;
                 progressPercent = repairTimeCurrent / repairTime;
                 repairProgressImage.fillAmount = progressPercent;
             }
             if (progressPercent >= 1)
             {
-                FindObjectOfType<AudioManager>().Stop("fixing");
                 RepairImageRoot.gameObject.SetActive(false);
                 collision.GetComponent<BreakRepairItem>().repairItem();
             }
