@@ -11,7 +11,7 @@ public class AimMask : MonoBehaviour
     public float aimSpeed = 5f;
     private float aimStep;
 
-    private Camera mCam;
+    public Camera mCam;
     private Ray targetRay;
     float rayDist = 30f;
 
@@ -24,7 +24,7 @@ public class AimMask : MonoBehaviour
     void Start()
     {
         mMovement = gameObject.GetComponent<PlayerMove>();
-        mCam = Camera.main;
+        //mCam = Camera.main;
     }
 
     // Update is called once per frame

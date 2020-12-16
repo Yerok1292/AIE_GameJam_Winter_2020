@@ -11,10 +11,19 @@ public class CustomerAI : MonoBehaviour
     public Transform slusheeNode;
 
     public List<Customer> customers;
-    public GameObject customerPrefab;
+    public GameObject[] customerPrefab;
+    private GameObject tempCustomer;
     public float spawnTimer = 5;
     private float spawnTime;
     public Vector3 spawnPoint;
+    public int maxCustomers = 10;
+    public int unmaskThreshold = 1;
+    public int antiMaskChanceNumerator = 1;
+    public int antiMaskChanceDenominator = 4;
+    public int maskChanceNumerator = 3;
+    public int maskChanceDenominator = 4;
+    public int minTasks = 2;
+    public int maxTasks = 6;
 
     // Start is called before the first frame update
     void Start()
@@ -54,26 +63,26 @@ public class CustomerAI : MonoBehaviour
         {
             spawnTime -= Time.deltaTime;
         }
-        else
+        else if (customers.Count < maxCustomers)
         {
             bool antiMaskRand = false;
             bool maskedRand = false;
             if (Random.Range(0, 2) == 0)
             {
                 antiMaskRand = false;
-                if (Random.Range(0, 4) == 3)
+                if (Random.Range(0, maskChanceDenominator) < maskChanceNumerator - 1)
                 {
-                    maskedRand = false;
+                    maskedRand = true;
                 }
                 else
                 {
-                    maskedRand = true;
+                    maskedRand = false;
                 }
             }
             else
             {
                 antiMaskRand = true;
-                if (Random.Range(0, 4) == 3)
+                if (Random.Range(0, antiMaskChanceDenominator) < antiMaskChanceNumerator - 1)
                 {
                     maskedRand = true;
                 }
@@ -83,7 +92,7 @@ public class CustomerAI : MonoBehaviour
                 }
             }
 
-            Transform[] randomTasks = new Transform[Random.Range(2, 7)];
+            Transform[] randomTasks = new Transform[Random.Range(minTasks, maxTasks + 1)];
             for (int i = 0; i < randomTasks.Length; i++)
             {
                 if (i != randomTasks.Length - 1)
@@ -112,7 +121,7 @@ public class CustomerAI : MonoBehaviour
             }
 
             GameObject customerObject = SpawnCustomer();
-            Customer customerToAdd = new Customer(antiMaskRand, maskedRand, customerObject, randomTasks);
+            Customer customerToAdd = new Customer(gameObject, antiMaskRand, maskedRand, customerObject, randomTasks);
             customers.Add(customerToAdd);
 
             spawnTime = spawnTimer;
@@ -121,7 +130,8 @@ public class CustomerAI : MonoBehaviour
 
     GameObject SpawnCustomer()
     {
-        GameObject custSpawn = Instantiate(customerPrefab, spawnPoint, new Quaternion());
+        tempCustomer = customerPrefab[Random.Range(0, customerPrefab.Length)];
+        GameObject custSpawn = Instantiate(tempCustomer, spawnPoint, new Quaternion());
         return custSpawn;
     }
 
@@ -136,6 +146,7 @@ public class CustomerAI : MonoBehaviour
 
 public class Customer
 {
+    public GameObject manager;
     public bool shouldDespawn;
     public bool isAntiMasker;
     public enum States { Move, Interact, Leave };
@@ -145,11 +156,13 @@ public class Customer
     public Transform[] tasks;
     public int taskIndex;
     public float taskTimer;
+    public int tasksDone = 0;
 
     WearingMask maskScript;
 
-    public Customer(bool antiMask, bool masked, GameObject customerObject, Transform[] nodeTasks)
+    public Customer(GameObject customerManager, bool antiMask, bool masked, GameObject customerObject, Transform[] nodeTasks)
     {
+        manager = customerManager;
         shouldDespawn = false;
         isAntiMasker = antiMask;
         customer = customerObject;
@@ -187,7 +200,15 @@ public class Customer
         {
             if (isAntiMasker)
             {
-                maskScript.UnMask();
+                if (tasksDone < manager.GetComponent<CustomerAI>().unmaskThreshold - 1)
+                {
+                    tasksDone++;
+                }
+                else
+                {
+                    tasksDone = 0;
+                    maskScript.UnMask();
+                }
             }
             state = States.Move;
         }

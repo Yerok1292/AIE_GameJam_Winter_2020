@@ -757,7 +757,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9d6a0839eb555da49add5349f8bfef63, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac2ebd5fd54747d4e800200285669ef9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2225,7 +2225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cff906184f8744469b7e39e1b785d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Jacob_Test
+  sceneName: Final_Game_Scene
 --- !u!114 &1586083373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2735,7 +2735,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Protect yourself and the public from the virus in 2020
+  m_text: 'Protect yourself and your coworker from the virus. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac2027985c9d2fb49a58e0fceac5d318, type: 2}
   m_sharedMaterial: {fileID: 5351839239076321705, guid: ac2027985c9d2fb49a58e0fceac5d318,
@@ -2891,7 +2891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: How To PLay
+  m_text: How To Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac2027985c9d2fb49a58e0fceac5d318, type: 2}
   m_sharedMaterial: {fileID: 5351839239076321705, guid: ac2027985c9d2fb49a58e0fceac5d318,
@@ -3342,7 +3342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Right Click to perform tasks
+  m_text: 'Right Click to perform tasks & to get more masks at the mask boxes. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac2027985c9d2fb49a58e0fceac5d318, type: 2}
   m_sharedMaterial: {fileID: 5351839239076321705, guid: ac2027985c9d2fb49a58e0fceac5d318,
