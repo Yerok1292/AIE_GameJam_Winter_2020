@@ -8,6 +8,9 @@ public class BreakRepairItem : MonoBehaviour
     public float dotTimerMax = 3;
     public float dotTimerCurrent;
     public float dotTickRate = 1;
+    public bool Bathroom;
+    public bool Counter;
+    public bool Slushee;
 
     //Dont edit
     [HideInInspector]
@@ -64,7 +67,6 @@ public class BreakRepairItem : MonoBehaviour
     void OnTriggerEnter(Collider collision)
     {
         Debug.Log("Touched Machine");
-        FindObjectOfType<AudioManager>().Play("broken slushee machine");
 
         //First childed model = fixed
         GameObject repairedObject = transform.GetChild(0).gameObject;
@@ -78,6 +80,17 @@ public class BreakRepairItem : MonoBehaviour
 
             if (Random.value <= BreakingChance / 100)
             {
+                if (Slushee == true)
+                {
+                    FindObjectOfType<AudioManager>().Play("broken slushee machine");
+                }
+                else if (Bathroom == true)
+                {
+                    FindObjectOfType<AudioManager>().Play("broken bathroom");
+                }
+                else
+                {
+                }
                 Debug.Log("Broke machine");
                 broken = true;
                 repairedObject.SetActive(false);
@@ -90,7 +103,17 @@ public class BreakRepairItem : MonoBehaviour
 
     public void repairItem()
     {
-        FindObjectOfType<AudioManager>().Stop("broken slushee machine");
+        if (Slushee == true)
+        {
+            FindObjectOfType<AudioManager>().Stop("broken slushee machine");
+        }
+        else if (Bathroom == true)
+        {
+            FindObjectOfType<AudioManager>().Stop("broken bathroom");
+        }
+        else
+        {
+        }
         //First childed model = fixed
         GameObject repairedObject = transform.GetChild(0).gameObject;
         //Second childed model = broken
