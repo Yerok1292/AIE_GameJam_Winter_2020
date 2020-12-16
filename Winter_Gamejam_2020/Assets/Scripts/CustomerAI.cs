@@ -88,7 +88,7 @@ public class CustomerAI : MonoBehaviour
             {
                 if (i != randomTasks.Length - 1)
                 {
-                    int rand = Random.Range(0, 3);
+                    int rand = Random.Range(0, 3 + (aisleNodes.Length / 2));
                     switch (rand)
                     {
                         case 0:
@@ -99,6 +99,9 @@ public class CustomerAI : MonoBehaviour
                             break;
                         case 2:
                             randomTasks[i] = slusheeNode;
+                            break;
+                        default:
+                            randomTasks[i] = aisleNodes[Random.Range(0, aisleNodes.Length)];
                             break;
                     }
                 }
