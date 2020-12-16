@@ -135,7 +135,6 @@ public class Customer
 {
     public bool shouldDespawn;
     public bool isAntiMasker;
-    public bool isMasked;
     public enum States { Move, Interact, Leave };
     public States state;
     public GameObject customer;
@@ -150,12 +149,11 @@ public class Customer
     {
         shouldDespawn = false;
         isAntiMasker = antiMask;
-        isMasked = masked;
         customer = customerObject;
         agent = customerObject.GetComponent<NavMeshAgent>();
         tasks = nodeTasks;
         maskScript = customerObject.GetComponent<WearingMask>();
-        maskScript.masked = isMasked;
+        maskScript.masked = masked;
     }
 
     public void Move(Vector3 target)
@@ -187,7 +185,6 @@ public class Customer
             if (isAntiMasker)
             {
                 maskScript.UnMask();
-                isMasked = maskScript.isMasked();
             }
             state = States.Move;
         }
