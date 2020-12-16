@@ -43,10 +43,6 @@ public class HealthBar : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            coworkerTakeDamage();
-        }
 
         currentHealth = slider.value;
         if (currentHealth <= 0 || currentCoworkerHealth <= 0)

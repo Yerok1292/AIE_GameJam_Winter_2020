@@ -90,6 +90,7 @@ public class BreakRepairItem : MonoBehaviour
                 }
                 else
                 {
+
                 }
                 Debug.Log("Broke machine");
                 broken = true;
