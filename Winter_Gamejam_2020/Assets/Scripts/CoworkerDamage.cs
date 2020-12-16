@@ -24,13 +24,16 @@ public class CoworkerDamage : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("register");
 
+            if (other.gameObject.GetComponent<WearingMask>().masked == false && other.tag == "Customer")
+            {
+                FindObjectOfType<AudioManager>().Play("coughing");
+
+                hBar.coworkerTakeDamage();
+            }
         }
 
-        if (other.gameObject.GetComponent<WearingMask>().masked == false && other.tag == "Customer")
-        {
-            FindObjectOfType<AudioManager>().Play("coughing");
+        
 
-            hBar.coworkerTakeDamage();
-        }
+       
     }
 }
