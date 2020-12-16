@@ -219,7 +219,7 @@ public class Customer
     public void Leave(Vector3 exit)
     {
         agent.SetDestination(exit);
-        if (Vector3.Distance(agent.transform.position, exit) < 4.5f)
+        if (Vector3.Distance(agent.transform.position, exit) < 5f)
         {
             shouldDespawn = true;
         }
