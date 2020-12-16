@@ -28,6 +28,8 @@ public class CoworkerDamage : MonoBehaviour
 
         if (other.gameObject.GetComponent<WearingMask>().masked == false && other.tag == "Customer")
         {
+            FindObjectOfType<AudioManager>().Play("coughing");
+
             hBar.coworkerTakeDamage();
         }
     }
