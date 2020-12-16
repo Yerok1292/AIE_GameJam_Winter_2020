@@ -2091,7 +2091,7 @@ GameObject:
   - component: {fileID: 129912698}
   m_Layer: 0
   m_Name: Mask Box
-  m_TagString: Untagged
+  m_TagString: MaskReload
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -11953,7 +11953,7 @@ BoxCollider:
   m_GameObject: {fileID: 852402677}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -12011,13 +12011,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852402677}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -28.6, y: 1.7, z: 5.8}
+  m_LocalRotation: {x: -0, y: 0.026984423, z: -0, w: 0.99963593}
+  m_LocalPosition: {x: -31.71, y: 1.7, z: 8.99}
   m_LocalScale: {x: 0.7890825, y: 2.4843776, z: 5.3760166}
   m_Children: []
   m_Father: {fileID: 21925292}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 3.0930002, z: 0}
 --- !u!1 &858057573
 GameObject:
   m_ObjectHideFlags: 0
