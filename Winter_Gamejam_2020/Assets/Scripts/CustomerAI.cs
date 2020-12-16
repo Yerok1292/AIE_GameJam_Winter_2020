@@ -54,7 +54,7 @@ public class CustomerAI : MonoBehaviour
             }
             if (customer.shouldDespawn)
             {
-                DespawnCustomer(customer);
+                StartCoroutine(DespawnCustomer(customer));
             }
         }
     }
@@ -137,8 +137,9 @@ public class CustomerAI : MonoBehaviour
         return custSpawn;
     }
 
-    public void DespawnCustomer(Customer cust)
+    IEnumerator DespawnCustomer(Customer cust)
     {
+        yield return new WaitForFixedUpdate();
         customers.Remove(cust);
         Destroy(cust.customer);
         cust = null;
