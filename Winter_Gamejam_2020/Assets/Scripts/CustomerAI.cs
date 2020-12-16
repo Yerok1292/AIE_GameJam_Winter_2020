@@ -11,7 +11,8 @@ public class CustomerAI : MonoBehaviour
     public Transform slusheeNode;
 
     public List<Customer> customers;
-    public GameObject customerPrefab;
+    public GameObject[] customerPrefab;
+    private GameObject tempCustomer;
     public float spawnTimer = 5;
     private float spawnTime;
     public Vector3 spawnPoint;
@@ -129,7 +130,8 @@ public class CustomerAI : MonoBehaviour
 
     GameObject SpawnCustomer()
     {
-        GameObject custSpawn = Instantiate(customerPrefab, spawnPoint, new Quaternion());
+        tempCustomer = customerPrefab[Random.Range(0, customerPrefab.Length)];
+        GameObject custSpawn = Instantiate(tempCustomer, spawnPoint, new Quaternion());
         return custSpawn;
     }
 

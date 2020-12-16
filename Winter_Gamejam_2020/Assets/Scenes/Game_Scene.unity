@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: f1a20570e31a4f74bb55c69a018a68a3,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -9200,6 +9200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7767948159430972613, guid: 5e54a0ff766ec4e45844c72d3d85e346,
         type: 3}
+      propertyPath: customerPrefab.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767948159430972613, guid: 5e54a0ff766ec4e45844c72d3d85e346,
+        type: 3}
       propertyPath: slusheeNode
       value: 
       objectReference: {fileID: 1426859850}
@@ -9233,6 +9238,24 @@ PrefabInstance:
       propertyPath: counterNode
       value: 
       objectReference: {fileID: 1923613739}
+    - target: {fileID: 7767948159430972613, guid: 5e54a0ff766ec4e45844c72d3d85e346,
+        type: 3}
+      propertyPath: customerPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 785348094098377352, guid: cd6bca3bb1d85064a9a844e2f3a8dba8,
+        type: 3}
+    - target: {fileID: 7767948159430972613, guid: 5e54a0ff766ec4e45844c72d3d85e346,
+        type: 3}
+      propertyPath: customerPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 785348094098377352, guid: 08027c60dac13cb438f59187a6e52801,
+        type: 3}
+    - target: {fileID: 7767948159430972613, guid: 5e54a0ff766ec4e45844c72d3d85e346,
+        type: 3}
+      propertyPath: customerPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 785348094098377352, guid: 3cad382bda517294f856ba62676bf398,
+        type: 3}
     - target: {fileID: 7767948159430972614, guid: 5e54a0ff766ec4e45844c72d3d85e346,
         type: 3}
       propertyPath: m_LocalPosition.x
