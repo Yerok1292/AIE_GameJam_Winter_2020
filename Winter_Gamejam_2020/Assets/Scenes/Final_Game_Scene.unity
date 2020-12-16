@@ -45630,6 +45630,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7677461754839452960}
+  - component: {fileID: 7677461754839452962}
+  - component: {fileID: 7677461754839452963}
   m_Layer: 0
   m_Name: Mat
   m_TagString: Untagged
@@ -45637,6 +45639,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7677461754839452962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7677461754839452961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a700027affdc5418483d15a1bc93c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &7677461754839452963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7677461754839452961}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.97, y: 1, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &7677461754845951570
 Transform:
   m_ObjectHideFlags: 0

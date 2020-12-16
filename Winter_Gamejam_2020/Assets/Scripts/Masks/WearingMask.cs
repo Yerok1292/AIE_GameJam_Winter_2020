@@ -5,7 +5,10 @@ using UnityEngine.VFX;
 
 public class WearingMask : MonoBehaviour
 {
-
+    [Range(1, 100)]
+    public float coughChance = 50;
+    public float coughTimer = 5;
+    public float currentCoughTimer;
     public bool masked = false;
     public VisualEffect sickness;
     public GameObject myMask;
@@ -13,6 +16,7 @@ public class WearingMask : MonoBehaviour
    
    private void Start() 
    {
+       currentCoughTimer = 0;
        if (masked == true)
        {
            if (sickness)
@@ -34,9 +38,26 @@ public class WearingMask : MonoBehaviour
        }
    }
 
+    private void Update()
+    {
+        if (masked == false)
+        {
+            currentCoughTimer += Time.deltaTime;
+
+            if (currentCoughTimer >= coughTimer)
+            {
+                if (Random.value <= coughChance / 100)
+                {
+                    FindObjectOfType<AudioManager>().Play("coughing");
+                }
+                currentCoughTimer = 0;
+            }
+        }
+    }
 
 
-   public void Mask ()
+
+    public void Mask ()
    {
        masked = true;
 
