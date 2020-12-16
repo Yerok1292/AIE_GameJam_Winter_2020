@@ -269,6 +269,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 785348094098377394}
     m_Modifications:
+    - target: {fileID: -8384672510972405461, guid: c833203543768554cb606368bae49994,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c833203543768554cb606368bae49994,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -339,10 +344,40 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: c833203543768554cb606368bae49994,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1330602093826030787, guid: c833203543768554cb606368bae49994,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: c833203543768554cb606368bae49994,
         type: 3}
       propertyPath: m_Name
       value: Customer2_Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 180445298968202151, guid: c833203543768554cb606368bae49994,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 988644912512329338, guid: c833203543768554cb606368bae49994,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165528857271585367, guid: c833203543768554cb606368bae49994,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5968640746716806392, guid: c833203543768554cb606368bae49994,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c833203543768554cb606368bae49994, type: 3}

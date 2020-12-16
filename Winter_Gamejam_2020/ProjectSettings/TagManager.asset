@@ -10,6 +10,7 @@ TagManager:
   - Slush
   - Table
   - Bathroom
+  - CleanItem
   layers:
   - Default
   - TransparentFX
