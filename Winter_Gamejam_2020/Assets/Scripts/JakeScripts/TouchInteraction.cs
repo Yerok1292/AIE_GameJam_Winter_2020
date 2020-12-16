@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TouchInteraction : MonoBehaviour
 {
@@ -12,11 +13,13 @@ public class TouchInteraction : MonoBehaviour
     public GameObject click2;
     public GameObject click3;
     public GameObject click4;
+    [SerializeField]
+    private Image repairProgressImage;
     //private bool isBroken;
-    
-    
-    
-    
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,14 +41,14 @@ public class TouchInteraction : MonoBehaviour
             {
                 repairTimeCurrent += Time.deltaTime;
                 progressPercent = repairTimeCurrent / repairTime;
-                //repairProgressImage.fillAmount = progressPercent;
+                repairProgressImage.fillAmount = progressPercent;
             }
             if (progressPercent >= 1)
             {
                 gameObject.GetComponent<MaskTracker>().Refresh();
                 //RepairImageRoot.gameObject.SetActive(false);
                 click1.gameObject.SetActive(false);
-                //repairProgressImage.fillAmount = 0;
+                repairProgressImage.fillAmount = 0;
                 repairTimeCurrent = 0;
                 progressPercent = 0;
                 Debug.Log("Trigger Repair/mask exit");
@@ -61,7 +64,7 @@ public class TouchInteraction : MonoBehaviour
             {
                 repairTimeCurrent += Time.deltaTime;
                 progressPercent = repairTimeCurrent / repairTime;
-                //repairProgressImage.fillAmount = progressPercent;
+                repairProgressImage.fillAmount = progressPercent;
             }
             if (progressPercent >= 1)
             {
@@ -78,7 +81,7 @@ public class TouchInteraction : MonoBehaviour
             {
                 repairTimeCurrent += Time.deltaTime;
                 progressPercent = repairTimeCurrent / repairTime;
-                //repairProgressImage.fillAmount = progressPercent;
+                repairProgressImage.fillAmount = progressPercent;
             }
             if (progressPercent >= 1)
             {
@@ -95,7 +98,7 @@ public class TouchInteraction : MonoBehaviour
             {
                 repairTimeCurrent += Time.deltaTime;
                 progressPercent = repairTimeCurrent / repairTime;
-                //repairProgressImage.fillAmount = progressPercent;
+                repairProgressImage.fillAmount = progressPercent;
             }
             if (progressPercent >= 1)
             {
