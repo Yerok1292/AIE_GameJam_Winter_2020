@@ -88,7 +88,7 @@ public class CustomerAI : MonoBehaviour
             {
                 if (i != randomTasks.Length - 1)
                 {
-                    int rand = Random.Range(0, 3);
+                    int rand = Random.Range(0, 3 + (aisleNodes.Length / 2));
                     switch (rand)
                     {
                         case 0:
@@ -100,6 +100,9 @@ public class CustomerAI : MonoBehaviour
                         case 2:
                             randomTasks[i] = slusheeNode;
                             break;
+                        default:
+                            randomTasks[i] = aisleNodes[Random.Range(0, aisleNodes.Length)];
+                            break;
                     }
                 }
                 else
@@ -109,7 +112,7 @@ public class CustomerAI : MonoBehaviour
             }
 
             GameObject customerObject = SpawnCustomer();
-            Customer customerToAdd = new Customer(antiMaskRand, maskedRand, customerObject, customerObject.GetComponent<NavMeshAgent>(), randomTasks);
+            Customer customerToAdd = new Customer(antiMaskRand, maskedRand, customerObject, randomTasks);
             customers.Add(customerToAdd);
 
             spawnTime = spawnTimer;
@@ -135,7 +138,6 @@ public class Customer
 {
     public bool shouldDespawn;
     public bool isAntiMasker;
-    public bool isMasked;
     public enum States { Move, Interact, Leave };
     public States state;
     public GameObject customer;
@@ -144,14 +146,17 @@ public class Customer
     public int taskIndex;
     public float taskTimer;
 
-    public Customer(bool antiMask, bool masked, GameObject customerObject, NavMeshAgent customerAgent, Transform[] nodeTasks)
+    WearingMask maskScript;
+
+    public Customer(bool antiMask, bool masked, GameObject customerObject, Transform[] nodeTasks)
     {
         shouldDespawn = false;
         isAntiMasker = antiMask;
-        isMasked = masked;
         customer = customerObject;
-        agent = customerAgent;
+        agent = customerObject.GetComponent<NavMeshAgent>();
         tasks = nodeTasks;
+        maskScript = customerObject.GetComponent<WearingMask>();
+        maskScript.masked = masked;
     }
 
     public void Move(Vector3 target)
@@ -180,6 +185,10 @@ public class Customer
         }
         else
         {
+            if (isAntiMasker)
+            {
+                maskScript.UnMask();
+            }
             state = States.Move;
         }
     }

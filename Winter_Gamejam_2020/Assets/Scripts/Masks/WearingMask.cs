@@ -38,7 +38,7 @@ public class WearingMask : MonoBehaviour
        masked = false;
         if (sickness)
         {
-            sickness.Stop();
+            sickness.Play();
         }
    }
 
