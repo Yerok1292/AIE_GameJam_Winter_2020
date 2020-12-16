@@ -22,7 +22,10 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myTime -= Time.deltaTime;
+        if (gameEnd == false)
+        {
+            myTime -= Time.deltaTime;
+        }
         if (secondsDisplayed)
         {
             secondsDisplayed.SetText(myTime.ToString("#"));

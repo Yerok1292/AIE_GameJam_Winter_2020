@@ -728,8 +728,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c5565a72282904d94ec8af56935740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dotTimerMax: 3
+  dotTimerCurrent: 0
+  dotTickRate: 1
+  dotTickRateCurrent: 0
+  sanitizationDamage: 1
   broken: 0
   BreakingChance: 25
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 1185368805}
 --- !u!1 &1185368802
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1185368803}
   - component: {fileID: 1185368804}
+  - component: {fileID: 1185368805}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -819,6 +828,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1185368805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185368802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f7a9afb42e88f041a84e6ef042395d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1185368804}
+  currentHealth: 0
 --- !u!1 &1203191735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1097,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1662,8 +1685,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c5565a72282904d94ec8af56935740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dotTimerMax: 3
+  dotTimerCurrent: 0
+  dotTickRate: 1
+  dotTickRateCurrent: 0
+  sanitizationDamage: 1
   broken: 0
   BreakingChance: 25
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 1185368805}
 --- !u!65 &1753074261
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2883,7 +2914,7 @@ PrefabInstance:
     - target: {fileID: 3026404199090095283, guid: ec8c3f20e9616e944bee787252bcd1b4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.48
+      value: 3.03
       objectReference: {fileID: 0}
     - target: {fileID: 3026404199090095283, guid: ec8c3f20e9616e944bee787252bcd1b4,
         type: 3}
