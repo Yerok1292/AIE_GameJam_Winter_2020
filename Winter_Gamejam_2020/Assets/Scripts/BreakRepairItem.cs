@@ -96,9 +96,25 @@ public class BreakRepairItem : MonoBehaviour
                 repairedObject.SetActive(false);
                 brokenObject.SetActive(true);
             }
+            else
+            {
+                if (Slushee == true)
+                {
+                    //FindObjectOfType<AudioManager>().Play("broken slushee machine");
+                }
+                else if (Bathroom == true)
+                {
+                    FindObjectOfType<AudioManager>().Play("toilet flushing");
+                }
+                else
+                {
+                }
+            }
 
 
         }
+
+
     }
 
     public void repairItem()

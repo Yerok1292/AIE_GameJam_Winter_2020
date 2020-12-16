@@ -53,7 +53,8 @@ public class WearingMask : MonoBehaviour
 
    public void UnMask ()
    {
-       masked = false;
+        FindObjectOfType<AudioManager>().Play("taking off mask");
+        masked = false;
         if (sickness)
         {
             sickness.Play();
@@ -63,6 +64,7 @@ public class WearingMask : MonoBehaviour
         {
             myMask.SetActive(false);
         }
+
    }
 
    public bool isMasked ()

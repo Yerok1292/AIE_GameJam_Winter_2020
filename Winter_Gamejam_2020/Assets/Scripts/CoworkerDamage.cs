@@ -20,7 +20,13 @@ public class CoworkerDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<WearingMask>().masked == false)
+        if (other.tag == "Customer")
+        {
+            FindObjectOfType<AudioManager>().Play("register");
+
+        }
+
+        if (other.gameObject.GetComponent<WearingMask>().masked == false && other.tag == "Customer")
         {
             hBar.coworkerTakeDamage();
         }
