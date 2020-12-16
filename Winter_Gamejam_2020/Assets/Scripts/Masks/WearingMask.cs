@@ -29,7 +29,7 @@ public class WearingMask : MonoBehaviour
 
         if (sickness)
         {
-            sickness.Play();
+            sickness.Stop();
         }
    }
 
@@ -38,7 +38,7 @@ public class WearingMask : MonoBehaviour
        masked = false;
         if (sickness)
         {
-            sickness.Stop();
+            sickness.Play();
         }
    }
 
