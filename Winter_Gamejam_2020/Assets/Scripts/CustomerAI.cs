@@ -109,7 +109,7 @@ public class CustomerAI : MonoBehaviour
             }
 
             GameObject customerObject = SpawnCustomer();
-            Customer customerToAdd = new Customer(antiMaskRand, maskedRand, customerObject, customerObject.GetComponent<NavMeshAgent>(), randomTasks);
+            Customer customerToAdd = new Customer(antiMaskRand, maskedRand, customerObject, randomTasks);
             customers.Add(customerToAdd);
 
             spawnTime = spawnTimer;
@@ -144,14 +144,18 @@ public class Customer
     public int taskIndex;
     public float taskTimer;
 
-    public Customer(bool antiMask, bool masked, GameObject customerObject, NavMeshAgent customerAgent, Transform[] nodeTasks)
+    WearingMask maskScript;
+
+    public Customer(bool antiMask, bool masked, GameObject customerObject, Transform[] nodeTasks)
     {
         shouldDespawn = false;
         isAntiMasker = antiMask;
         isMasked = masked;
         customer = customerObject;
-        agent = customerAgent;
+        agent = customerObject.GetComponent<NavMeshAgent>();
         tasks = nodeTasks;
+        maskScript = customerObject.GetComponent<WearingMask>();
+        maskScript.masked = isMasked;
     }
 
     public void Move(Vector3 target)
@@ -180,6 +184,11 @@ public class Customer
         }
         else
         {
+            if (isAntiMasker)
+            {
+                maskScript.UnMask();
+                isMasked = maskScript.isMasked();
+            }
             state = States.Move;
         }
     }
