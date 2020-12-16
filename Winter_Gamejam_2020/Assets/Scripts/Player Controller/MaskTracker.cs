@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MaskTracker : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MaskTracker : MonoBehaviour
     private int minMask = 0;
     public int publicMask = 5; //Display value for masks
     public int currentMask;
+    public TextMeshProUGUI maskText;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,11 @@ public class MaskTracker : MonoBehaviour
 
         currentMask = maxMask;
         publicMask = currentMask;
+
+        if (maskText)
+        {
+            maskText.SetText(publicMask.ToString());
+        }
     }
 
    public bool HasMask ()
@@ -31,6 +38,11 @@ public class MaskTracker : MonoBehaviour
        {
            currentMask--;
            publicMask = currentMask;
+
+            if (maskText)
+            {
+                maskText.SetText(publicMask.ToString());
+            }
            return(true);
        }
        else
@@ -43,6 +55,10 @@ public class MaskTracker : MonoBehaviour
    {
        currentMask = maxMask;
        publicMask = currentMask;
+        if (maskText)
+        {
+            maskText.SetText(publicMask.ToString());
+        }
    }
 
 
