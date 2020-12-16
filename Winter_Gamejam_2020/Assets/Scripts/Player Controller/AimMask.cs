@@ -71,7 +71,7 @@ public class AimMask : MonoBehaviour
         {
             if (mMovement.isThrowing == true)
             {
-                rotateCharacter.rotation = Quaternion.RotateTowards(rotateCharacter.rotation, aimTarget.rotation, aimStep);
+                //rotateCharacter.rotation = Quaternion.RotateTowards(rotateCharacter.rotation, aimTarget.rotation, aimStep);
             }
         }
 

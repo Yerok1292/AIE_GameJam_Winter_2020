@@ -66,7 +66,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         
-        if (isMoving && !isThrowing) //Only turn if moving, don't turn if currently throwing.
+        if (isMoving) //Only turn if moving, don't turn if currently throwing.
         {
 
             turnStep = turnSpeed * Time.deltaTime;
