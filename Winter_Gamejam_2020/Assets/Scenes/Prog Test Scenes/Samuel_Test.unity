@@ -438,8 +438,10 @@ MonoBehaviour:
   bathroomNode: {fileID: 1491810654}
   counterNode: {fileID: 575291258}
   slusheeNode: {fileID: 1571250837}
-  customerPrefab: {fileID: 785348094098377352, guid: 8da8fae9993340444a01a6f606fedc38,
-    type: 3}
+  customerPrefab:
+  - {fileID: 785348094098377352, guid: cd6bca3bb1d85064a9a844e2f3a8dba8, type: 3}
+  - {fileID: 785348094098377352, guid: 08027c60dac13cb438f59187a6e52801, type: 3}
+  - {fileID: 785348094098377352, guid: 3cad382bda517294f856ba62676bf398, type: 3}
   spawnTimer: 5
   spawnPoint: {x: 0, y: 0.5, z: -10}
   maxCustomers: 10
