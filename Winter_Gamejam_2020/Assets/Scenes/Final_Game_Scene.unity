@@ -11863,7 +11863,7 @@ PrefabInstance:
     - target: {fileID: 6562034702037818656, guid: 8b67d7aaf465d294295763b1962987c2,
         type: 3}
       propertyPath: BreakingChance
-      value: 35
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6562034702037818656, guid: 8b67d7aaf465d294295763b1962987c2,
         type: 3}
@@ -44871,7 +44871,7 @@ MonoBehaviour:
   dotTickRateCurrent: 0
   sanitizationDamage: 0.85
   broken: 0
-  BreakingChance: 35
+  BreakingChance: 45
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 253296854}
@@ -65929,7 +65929,7 @@ MonoBehaviour:
   dotTickRateCurrent: 0
   sanitizationDamage: 0.85
   broken: 0
-  BreakingChance: 35
+  BreakingChance: 45
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 253296854}
