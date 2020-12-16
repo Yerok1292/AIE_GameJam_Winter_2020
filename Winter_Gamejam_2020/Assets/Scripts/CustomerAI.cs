@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class CustomerAI : MonoBehaviour
 {
     public Transform[] aisleNodes;
@@ -10,6 +11,7 @@ public class CustomerAI : MonoBehaviour
     public Transform counterNode;
     public Transform slusheeNode;
 
+    
     public List<Customer> customers;
     public GameObject[] customerPrefab;
     private GameObject tempCustomer;
