@@ -25,6 +25,13 @@ public class WearingMask : MonoBehaviour
                myMask.SetActive(true);
            }
        }
+       else
+       {
+            if (myMask)
+            {
+                myMask.SetActive(false);
+            }
+       }
    }
 
 
