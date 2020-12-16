@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myTime = 60;
+        //myTime = 60;
         gameEnd = false;
 
     }
