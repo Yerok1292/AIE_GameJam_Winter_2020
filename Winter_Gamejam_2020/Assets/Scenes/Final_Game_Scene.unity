@@ -5785,7 +5785,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 253296855}
+  gameOverUI: {fileID: 1592564878}
+  gameWinUI: {fileID: 2060294094}
   currentHealth: 0
+  timer: {fileID: 820149273}
 --- !u!114 &253296855 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3553337706350022764, guid: 67f7a7167de9b314db3b45bf78f91eea,
