@@ -261,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   masked: 0
   sickness: {fileID: 2188617556977418358}
-  myMask: {fileID: 0}
+  myMask: {fileID: 3802441587764740535}
 --- !u!1001 &2366586388906527293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -349,6 +349,12 @@ PrefabInstance:
 --- !u!4 &7326645238441042215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: c833203543768554cb606368bae49994,
+    type: 3}
+  m_PrefabInstance: {fileID: 2366586388906527293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3802441587764740535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1446554547583421322, guid: c833203543768554cb606368bae49994,
     type: 3}
   m_PrefabInstance: {fileID: 2366586388906527293}
   m_PrefabAsset: {fileID: 0}
