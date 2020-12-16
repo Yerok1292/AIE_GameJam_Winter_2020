@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1922,7 +1922,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hold Left Click To Throw Masks
+  m_text: Click the Mouse To Throw Masks
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac2027985c9d2fb49a58e0fceac5d318, type: 2}
   m_sharedMaterial: {fileID: 5351839239076321705, guid: ac2027985c9d2fb49a58e0fceac5d318,
