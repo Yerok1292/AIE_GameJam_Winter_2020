@@ -444,9 +444,9 @@ MonoBehaviour:
   spawnPoint: {x: 0, y: 0.5, z: -10}
   maxCustomers: 10
   unmaskThreshold: 2
-  antiMaskChanceNumerator: 0
+  antiMaskChanceNumerator: 1
   antiMaskChanceDenominator: 4
-  maskChanceNumerator: 0
+  maskChanceNumerator: 3
   maskChanceDenominator: 4
   minTasks: 2
   maxTasks: 6
