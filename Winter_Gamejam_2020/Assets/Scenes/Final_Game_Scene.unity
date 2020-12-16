@@ -6067,7 +6067,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Protect Your ImmunoCompromised \nCo-worker!"
+  m_text: "You failed to protect your ImmunoCompromised \nCo-worker!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac2027985c9d2fb49a58e0fceac5d318, type: 2}
   m_sharedMaterial: {fileID: 5351839239076321705, guid: ac2027985c9d2fb49a58e0fceac5d318,
@@ -6113,7 +6113,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 13
+  m_firstOverflowCharacterIndex: 27
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -6137,10 +6137,10 @@ MonoBehaviour:
   m_margin: {x: -392.34592, y: 0, z: -20.688965, w: 0}
   m_textInfo:
     textComponent: {fileID: 476870297}
-    characterCount: 42
+    characterCount: 56
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 4
+    spaceCount: 7
+    wordCount: 7
     linkCount: 0
     lineCount: 3
     pageCount: 1
@@ -10495,6 +10495,7 @@ GameObject:
   - component: {fileID: 820149270}
   - component: {fileID: 820149269}
   - component: {fileID: 820149268}
+  - component: {fileID: 820149273}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -10603,6 +10604,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &820149273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820149267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc92f12954d8b8d4ca323db2a609335b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTime: 60
+  zeroSeconds: 0
+  gameEnd: 0
+  WinScreen: {fileID: 2060294094}
+  secondsDisplayed: {fileID: 1968253740}
 --- !u!1001 &822151443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19886,7 +19904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1592564879
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24351,6 +24369,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963769846}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1968253740 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2788299662656592082, guid: 244669a84f1ca224dad8fca36f0ac2b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2788299662935477674}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1975722236
 GameObject:
   m_ObjectHideFlags: 0
@@ -27061,6 +27091,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 820149272}
     m_Modifications:
+    - target: {fileID: 2788299662656592082, guid: 244669a84f1ca224dad8fca36f0ac2b7,
+        type: 3}
+      propertyPath: m_text
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788299662656592082, guid: 244669a84f1ca224dad8fca36f0ac2b7,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788299662656592093, guid: 244669a84f1ca224dad8fca36f0ac2b7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 84.9
+      objectReference: {fileID: 0}
     - target: {fileID: 2788299662756932146, guid: 244669a84f1ca224dad8fca36f0ac2b7,
         type: 3}
       propertyPath: m_Name
